@@ -1,0 +1,34 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProductService.Application.DTOs
+{
+    public class ReviewCreateDTO
+    {
+        [Required(ErrorMessage = "ProductId is required.")]
+
+        public Guid ProductId { get; set; }
+
+
+
+        [Required(ErrorMessage = "UserId is required.")]
+
+        public Guid UserId { get; set; }
+
+
+
+        [Range(1, 5, ErrorMessage = "Rating must be between 1 and 5.")]
+
+        public int Rating { get; set; }
+
+
+
+        [StringLength(2000, ErrorMessage = "Comment cannot exceed 2000 characters.")]
+
+        public string? Comment { get; set; }
+    }
+}
